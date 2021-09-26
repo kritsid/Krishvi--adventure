@@ -11,4 +11,5 @@
 -- );
 
 
--- 'insert into voice_banking_users_db(id, first_name, last_name,email, gender, account_number, account_type, on_hold, balance ) values (%s, %s,%s,%s,%s,%s,%s,%s,%s)',(str(df.iloc[i,0]),df.iloc[i,1],df.iloc[i,2],df.iloc[i,3],df.iloc[i,4],str(df.iloc[i,5]),df.iloc[i,6],str(df.iloc[i,7]),str(df.iloc[i,8]))
+-- insert into voice_banking_users (id, first_name, last_name,email, gender, account_number, account_type, on_hold, balance ) 
+-- values(1,	'Kritika',	'Aggarwal',	'kaggarwal1_be18@thapar.edu',	'female',	74607266160	,'salary',	'FALSE',	500000);
