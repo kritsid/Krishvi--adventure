@@ -1,0 +1,104 @@
+id,first_name,last_name,email,gender,account_number,account_type,on_hold,balance
+1,Kritika,Aggarwal,kaggarwal1_be18@thapar.edu,female,74607266160,salary,FALSE,500000
+2,Vipul,Goel,vgoel_be18@thapar.edu,male,43648842707,salary,FALSE,50000000
+3,Ishika,Sofat,isofat_be18@thapar.edu,female,43648841308,salary,FALSE,1000000
+4,Elsbeth,Dilliway,edilliway0@printfriendly.com,female,74607266180,salary,FALSE,4464278.61
+5,Kingsley,Abramamovh,kabramamovh1@google.cn,female,97857631641,salary,FALSE,1273309.45
+6,Cary,Auguste,cauguste2@themeforest.net,male,66022461040,recurring deposit,FALSE,730911.85
+7,Twyla,De Lasci,tdelasci3@redcross.org,female,38706790872,fixed deposit,TRUE,9765318
+8,Amandi,Seilmann,aseilmann4@seesaa.net,male,43648844991,salary,FALSE,7307225.77
+9,Lucinda,Thickin,lthickin5@abc.net.au,male,86163409962,fixed deposit,FALSE,8310963
+10,Hanan,Butting,hbutting6@vimeo.com,female,82442842820,savings,FALSE,8663172
+11,Kellby,Robson,krobson7@indiatimes.com,female,28365845158,recurring deposit,FALSE,8747484
+12,Talyah,Pavic,tpavic8@github.com,female,45650388838,fixed deposit,FALSE,2229998.42
+13,Fonsie,MacGeaney,fmacgeaney9@shinystat.com,male,55771254437,salary,FALSE,6565353
+14,Lissa,Linforth,llinfortha@hhs.gov,male,6403957927,fixed deposit,FALSE,4974733.61
+15,Darwin,Taillant,dtaillantb@odnoklassniki.ru,female,70409744047,fixed deposit,FALSE,8125615.41
+16,Gilligan,McConachie,gmcconachiec@e-recht24.de,male,90940804763,fixed deposit,FALSE,3115500.16
+17,Bartholemy,Shore,bshored@alexa.com,male,97172028535,recurring deposit,FALSE,3176457.19
+18,Kahaleel,Tressler,ktresslere@naver.com,male,6570713517,fixed deposit,FALSE,2287548.02
+19,Ody,Pech,opechf@europa.eu,male,75374493060,recurring deposit,FALSE,3004878.81
+20,Rosamund,Bunclark,rbunclarkg@cbsnews.com,male,55754255081,savings,FALSE,1594805.03
+21,Nikolaus,Glasby,nglasbyh@amazon.de,male,2881299076,current,TRUE,5677614.97
+22,Maddy,Delf,mdelfi@samsung.com,male,85430728195,current,TRUE,6018681
+23,Raphael,Thoday,rthodayj@privacy.gov.au,male,46198782170,savings,FALSE,3692808.98
+24,Glendon,MacCaughey,gmaccaugheyk@fda.gov,male,24310763870,savings,FALSE,3134413
+25,Emogene,Stobie,estobiel@odnoklassniki.ru,female,68564479879,recurring deposit,TRUE,6485728.66
+26,Sherri,Jouhning,sjouhningm@myspace.com,male,27767756796,fixed deposit,FALSE,2311283.66
+27,Ely,Piercey,epierceyn@tinyurl.com,male,57552905479,salary,FALSE,6654475.82
+28,Tessi,Haszard,thaszardo@scribd.com,female,96266818983,salary,TRUE,7996848
+29,Hazel,Bilbee,hbilbeep@earthlink.net,female,89959157981,savings,TRUE,7509365
+30,Jennee,Luchetti,jluchettiq@redcross.org,female,79534239764,salary,FALSE,4597684.32
+31,Madge,Bingham,mbinghamr@weibo.com,female,32717097387,current,FALSE,4112397.2
+32,Regen,Billie,rbillies@webnode.com,female,36819391219,fixed deposit,FALSE,9918018
+33,Mikael,Auger,maugert@ebay.co.uk,female,82928077811,savings,FALSE,8601147
+34,Lorelei,Janiszewski,ljaniszewskiu@mlb.com,male,72456245129,recurring deposit,FALSE,4813825.27
+35,Base,Freeberne,bfreebernev@latimes.com,male,78387237314,salary,TRUE,8663437
+36,Faydra,Zapata,fzapataw@netscape.com,female,18477902777,savings,TRUE,9768954
+37,Reinold,Kendrew,rkendrewx@youtu.be,female,29874233416,savings,FALSE,6815570.58
+38,Steffie,Lowbridge,slowbridgey@vk.com,female,65147560977,fixed deposit,FALSE,781505.26
+39,Shell,Cokly,scoklyz@upenn.edu,female,94248250095,fixed deposit,FALSE,1124302.59
+40,Carny,Mead,cmead10@meetup.com,male,17927911206,fixed deposit,FALSE,7883708
+41,Aindrea,Niles,aniles11@dailymotion.com,male,58778844240,recurring deposit,FALSE,499144.71
+42,Birgitta,Lattimore,blattimore12@whitehouse.gov,male,25144702866,savings,FALSE,2320553.37
+43,Brigham,Wasylkiewicz,bwasylkiewicz13@ow.ly,male,28975074610,recurring deposit,TRUE,4049764.26
+44,Helen,Hinze,hhinze14@aboutads.info,male,90785533910,recurring deposit,FALSE,8166851
+45,Phyllys,Maffiotti,pmaffiotti15@netvibes.com,female,60720393375,current,FALSE,8403596
+46,Jerrome,Brettel,jbrettel16@about.com,female,55633109234,fixed deposit,FALSE,515796
+47,Annalee,Wanstall,awanstall17@ebay.com,female,68873975069,fixed deposit,FALSE,5207993.09
+48,Sigfried,Tompkiss,stompkiss18@booking.com,male,338456481,recurring deposit,FALSE,4439160.35
+49,Lindie,Cartin,lcartin19@sphinn.com,female,27349195260,current,FALSE,1707087.81
+50,Lorne,Scrooby,lscrooby1a@bandcamp.com,female,66761108667,savings,FALSE,1088672.11
+51,Nichole,Booley,nbooley1b@jimdo.com,male,70632305323,recurring deposit,FALSE,1853457.73
+52,Tessie,MacGillreich,tmacgillreich1c@sciencedaily.com,female,85205042821,savings,FALSE,5549526.01
+53,Dilly,Ambrosch,dambrosch1d@state.gov,female,99136533779,savings,FALSE,6880313
+54,Cornelle,Bengtsen,cbengtsen1e@china.com.cn,female,13909255181,recurring deposit,FALSE,4674308
+55,Matt,Larrett,mlarrett1f@scribd.com,male,77102257928,recurring deposit,FALSE,6514664
+56,Cheri,Queen,cqueen1g@parallels.com,female,85736344547,fixed deposit,FALSE,312249.12
+57,Nickola,Wolfers,nwolfers1h@bloglovin.com,male,79973203942,salary,TRUE,7178276.25
+58,Fayre,Parsley,fparsley1i@technorati.com,male,64684640377,fixed deposit,FALSE,2434273
+59,Lotti,Garbert,lgarbert1j@liveinternet.ru,female,83939908202,savings,TRUE,9849717
+60,Silvanus,Powland,spowland1k@eventbrite.com,male,49468146244,savings,FALSE,5268972
+61,Henka,Brea,hbrea1l@time.com,female,12239593945,recurring deposit,FALSE,1250329
+62,Elset,McUre,emcure1m@indiatimes.com,male,65790625072,recurring deposit,FALSE,1935128.11
+63,Leelah,Waslin,lwaslin1n@i2i.jp,male,50540189900,salary,FALSE,7359840.49
+64,Juana,Magee,jmagee1o@plala.or.jp,female,33416697499,savings,TRUE,660296.5
+65,Olimpia,Caunt,ocaunt1p@blogtalkradio.com,male,60995672021,recurring deposit,FALSE,2063898
+66,Kassia,Potte,kpotte1q@elegantthemes.com,male,5173925320,current,FALSE,5763453.75
+67,Minna,Ryson,mryson1r@bing.com,female,82437600489,recurring deposit,FALSE,8671055
+68,Amargo,Spavon,aspavon1s@unc.edu,female,32347902303,current,FALSE,9341280
+69,Shurwood,Bellefonte,sbellefonte1t@addtoany.com,male,75579845696,current,FALSE,2850402
+70,Filia,Schlagh,fschlagh1u@sciencedaily.com,male,32216599249,savings,FALSE,5624748.12
+71,Sena,Theyer,stheyer1v@livejournal.com,female,82378446406,salary,FALSE,7935841.1
+72,Bink,Trimnell,btrimnell1w@theatlantic.com,female,43927919842,savings,FALSE,7632304.79
+73,Veronike,Birdwhistle,vbirdwhistle1x@foxnews.com,male,91191496877,salary,FALSE,2396585.52
+74,Rolando,Pordal,rpordal1y@umich.edu,male,2437654487,savings,FALSE,452610.45
+75,Rudolfo,Chester,rchester1z@tuttocitta.it,male,29829959667,current,FALSE,5229931
+76,Violante,Spilsted,vspilsted20@theglobeandmail.com,male,97651013644,salary,FALSE,9810781
+77,Joe,Bruhnsen,jbruhnsen21@vimeo.com,male,71694608043,savings,TRUE,2720202.82
+78,Karole,Tennewell,ktennewell22@europa.eu,male,73505242542,fixed deposit,FALSE,4539559
+79,Andonis,Prinnett,aprinnett23@wikipedia.org,male,78646074414,current,TRUE,4366964
+80,Kevon,Liddyard,kliddyard24@whitehouse.gov,female,34111937613,fixed deposit,FALSE,8643602
+81,Suzie,Rainford,srainford25@ucoz.com,female,62958624533,savings,FALSE,5712806.11
+82,Marga,Hamel,mhamel26@sogou.com,male,34175590579,salary,TRUE,2131703.72
+83,Randa,Franscioni,rfranscioni27@hhs.gov,female,76683078722,current,FALSE,3579777.17
+84,Cristabel,Howsden,chowsden28@mail.ru,female,86430275998,fixed deposit,FALSE,6102118
+85,Pippa,Bradford,pbradford29@over-blog.com,male,75390019136,salary,TRUE,8942919
+86,Salomon,Dobrovolski,sdobrovolski2a@skype.com,female,62623028960,savings,FALSE,7399007
+87,Bondie,Glen,bglen2b@ucoz.ru,female,43239712334,savings,FALSE,606644.41
+88,Hieronymus,Odda,hodda2c@sphinn.com,female,28668157066,savings,FALSE,7307174.46
+89,Denice,Pratte,dpratte2d@chron.com,male,77206240098,savings,FALSE,5373300
+90,Herbert,Rushman,hrushman2e@360.cn,female,14745400828,savings,FALSE,2852718.84
+91,Ginnifer,Dummer,gdummer2f@wordpress.org,female,37220800269,current,FALSE,6304252
+92,Lalo,Jeremiah,ljeremiah2g@woothemes.com,male,82235620960,savings,FALSE,809321.05
+93,Edna,Gobat,egobat2h@opera.com,female,93285057032,savings,FALSE,9167596
+94,Rickert,Ollerenshaw,rollerenshaw2i@samsung.com,male,50925117236,fixed deposit,FALSE,9013310
+95,Elisha,Frend,efrend2j@cnet.com,female,89019444826,savings,FALSE,6852315.65
+96,Jesselyn,Hurche,jhurche2k@va.gov,female,21993581615,fixed deposit,FALSE,2575257
+97,Barbie,Bowcock,bbowcock2l@bbc.co.uk,female,7852387055,savings,FALSE,1084153
+98,Rice,Elliott,relliott2m@ucla.edu,male,69871914573,current,TRUE,9795745
+99,Jeanne,Whimper,jwhimper2n@weather.com,female,54345101961,recurring deposit,FALSE,6795734
+100,Ermina,Gorhardt,egorhardt2o@fotki.com,male,14993454594,salary,FALSE,9797350
+101,Adela,Huzzey,ahuzzey2p@studiopress.com,female,11945988516,savings,FALSE,9427809
+102,Lindy,Pendell,lpendell2q@webeden.co.uk,female,54799351605,salary,FALSE,2903314.76
+103,Mechelle,Livick,mlivick2r@salon.com,male,41857420205,fixed deposit,FALSE,3157899.39
