@@ -3,8 +3,6 @@ import sqlite3
 import psycopg2
 from psycopg2.extras import DictCursor
 
-
-
 def connect_db():
     conn = psycopg2.connect('postgres://qahsnefkaipjxg:325b65d33021cb764a558159aaccb79974554c1e5a70d154a4a2ea44218908f3@ec2-34-233-187-36.compute-1.amazonaws.com:5432/dfjoleem3udeag', cursor_factory=DictCursor)
     conn.autocommit = True
@@ -31,7 +29,3 @@ def init_db():
 
     db[0].close()
 
-# cursor=get_db()
-# cursor.execute('select * from voice_banking_users')
-# user = cursor.fetchone()
-# print(user)

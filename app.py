@@ -13,20 +13,8 @@ def close_db(error):
     if hasattr(g, 'postgres_db_conn'):
         g.postgres_db_conn.close()
 
-# def get_current_user():
-#     res=None
-#     if 'user' in session:
-#         user = session['user']
-
-#         cursor = get_db()
-#         cursor.execute('select * from users where username = %s',(user, ))
-#         res = cursor.fetchone()
-#     return res
-
-
-
 @app.route('/insert_data_from_csv_to_heroku_postgres_db',methods=['GET'])
-def login():    
+def adding_db   ():    
     df=pd.read_csv('data.csv')
     
     cursor = get_db()
