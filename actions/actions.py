@@ -7,9 +7,6 @@ from rasa_sdk.executor import CollectingDispatcher
 import global_data_config
 from pathlib import Path
 import os
-
-
-
 from voiceit2 import VoiceIt2
 import speech_recognition as s_r
 # import pyaudio
@@ -55,15 +52,26 @@ def login():
         # groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         downloads_path = str(Path.home() / "Downloads")
-        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\welcome.wav")
+        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", "pa7.mp4")
         print(identified_as)
         print(type(identified_as))
-        if bool(identified_as):
+        if identified_as['responseCode'] != 'FAIL':
             x=identified_as['userId']
             cursor = get_db()
             cursor.execute('select * from voice_banking_users_db where voice_id = %s',(x,))
             taken = cursor.fetchone()
-            return render_template('chatroom.html')
+            if len(taken)>=1:
+                global_data_config.email = taken['email']
+                global_data_config.user_id = taken['id']
+                global_data_config.name = taken['first_name'] +' '+ taken['last_name']
+                global_data_config.account_number = taken['account_number']
+                global_data_config.balance = taken['balance']
+                global_data_config.account_type = taken['account_type']
+                global_data_config.account_hold = taken['on_hold']
+                print(global_data_config.email)       
+                print(global_data_config.name)   
+                print("*************************")
+                return render_template('chatroom.html',name =global_data_config.name )
             return render_template('voice_home.html')
         else:
             print("AUTHENTICATION FAILEd")
