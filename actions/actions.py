@@ -1,6 +1,10 @@
 from flask import Flask,redirect,url_for,render_template,request,g,session
 # import pandas as pd
 from database import get_db
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import global_data_config
 from pathlib import Path
 import global_data_config
 import os
@@ -46,10 +50,7 @@ def close_db(error):
     if hasattr(g, 'postgres_db_conn'):
         g.postgres_db_conn.close()
 
-def get_current_user():
-    pass
-def set_user_data():
-    pass
+
 # my_voiceit = VoiceIt2('key_2a3d1f042f234bc089208f1bad26e64b','tok_a10c3c9017b84cb7bb53b49f7bd64859')
 my_voiceit = VoiceIt2('key_56c24a5f4d4e41268ad35e3cc73eaca0','tok_132c2d00a38449179502fc4ed5a84f55')
 @app.route('/', methods=['GET','POST'])
@@ -74,8 +75,8 @@ def login():
         # groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         downloads_path = str(Path.home() / "Downloads")
-        # identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\welcome.wav")
-        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", "pa7.mp4")
+        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\welcome.wav")
+        # identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", "pa7.mp4")
         print(identified_as)
         print(type(identified_as))
         if identified_as['responseCode'] != 'FAIL':
@@ -115,7 +116,7 @@ def validate():
     user_otp=request.form['otp']
     if otp==int(user_otp):
         session['user']= global_data_config.email
-        return render_template('chatroom.html')
+        return render_template('chatroom.html',name =global_data_config.name )
     email=global_data_config.email
     global_data_config.count+=1
     msg=Message(subject='OTP',sender='vipul27goel@gmail.com',recipients=[email])
@@ -128,4 +129,4 @@ def validate():
 
 
 if __name__ == '__main__':
-    app.run(port = 5055, debug=True)
+    app.run(debug=True)
