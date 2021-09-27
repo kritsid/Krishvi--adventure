@@ -3,23 +3,21 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- tranfer_to_whom
-- service
-- bye
-- greet
-- how_much_money_to_transfer
 - approve
+- ask_transfer_amount
+- transfer_funds
+- bye
+- check_balance
+- greet
+- ask_receiver_account_number
 - if_bot
 - about_user
 entities:
 - approval
+- ask_transfer_amount
 - receiver_account_number
-- service_name
 - transfer_amount
 slots:
-  service_name:
-    type: text
-    influence_conversation: false
   user_name:
     type: text
     influence_conversation: false
@@ -46,12 +44,10 @@ slots:
     influence_conversation: true
   transfer_amount:
     type: float
-    influence_conversation: true
+    initial_value: 1052.8
+    influence_conversation: false
     max_value: 1.0
     min_value: 0.0
-  receiver_account_id:
-    type: text
-    influence_conversation: false
   approval:
     type: categorical
     influence_conversation: true
@@ -59,8 +55,9 @@ slots:
     - yes
     - no
   receiver_account_number:
-    type: text
-    influence_conversation: true
+    type: any
+    initial_value: 43648842707
+    influence_conversation: false
 responses:
   utter_greet:
   - text: Hi {user_name}! How are you?
@@ -71,7 +68,7 @@ responses:
   utter_about_user:
   - text: what do u wish to do today? transfer funds or  check your balance?
   utter_transfer_funds:
-  - text: balance of ur account {account_number} is {user_balance} dollars.Please provide the account number where you want to transfer the funds?
+  - text: balance of ur account {account_number} is {user_balance} dollars.
   utter_check_balance:
   - text: balance of ur account {account_number} is {user_balance} dollars.
   utter_account_on_hold:
@@ -88,21 +85,18 @@ responses:
   - text: Kindly enter the account number to transfer the amount
   utter_transfer_done:
   - text: successfuly transferred the amount. your balance is now {user_balance}
+  utter_transfer_cancelled:
+  - text: Transfer Cancelled!
 actions:
 - action_final_transfer_funds
+- action_hello_world
 - action_restart
 - action_select_service
 - action_welcome
 - utter_about_user
+- utter_ask_receiver_account_number
+- utter_ask_transfer_amount
 - utter_bye
+- utter_check_balance
 - utter_greet
 - utter_slot_values
-forms:
-  transfer_funds_form:
-    required_slots:
-      transfer_amount:
-      - type: from_entity
-        entity: transfer_amount
-      receiver_account_number:
-      - type: from_entity
-        entity: receiver_account_number

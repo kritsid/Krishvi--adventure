@@ -8,20 +8,29 @@ intents:
   - bye
   - if_bot
   - about_user
-  - service
-  - tranfer_to_whom
-  - how_much_money_to_transfer
+  # - service
+  - asking_receiver_account_number
+  - asking_transfer_amount
   - approve
+  - transfer_funds
+  - check_balance
+  # - ask_account_number
 
 entities: 
-  - service_name
+  # - service_name
   - transfer_amount
   - receiver_account_number
   - approval
+  # - transfer_funds
+  # - check_balance
 slots:
-  service_name:
-    type: text
-    influence_conversation: false
+  # transfer_funds:
+  #   type: text
+  # check_balance:
+  #   type: text
+  # service_name:
+  #   type: text
+  #   influence_conversation: false
   user_name:
     type: text
     influence_conversation: false
@@ -44,9 +53,8 @@ slots:
     type: bool
   transfer_amount:
     type: float
-  receiver_account_id:
-    type: text
     influence_conversation: false
+    initial_value: 100.0
   approval:
     type: categorical
     values:
@@ -54,6 +62,8 @@ slots:
       - no
   receiver_account_number:
     type: text
+    initial_value: 43648842707
+
 
   
 responses:
@@ -63,6 +73,8 @@ responses:
     - text: Have a nice day {user_name}!
   utter_if_bot:
     - text: I am bot powered by KRISHVI..
+  # utter_account_number:
+  #   - text: Dear {user_name}, your account number is {account_number}
   utter_about_user:
     - text: what do u wish to do today? transfer funds or  check your balance?
   utter_transfer_funds:
@@ -93,13 +105,14 @@ actions:
   - utter_greet
   - action_restart
   - action_final_transfer_funds
+  - action_hello_world
 
-forms:
-  transfer_funds_form:
-    required_slots:
-        transfer_amount:
-          - type: from_entity
-            entity: transfer_amount
-        receiver_account_number:
-          - type: from_entity
-            entity: receiver_account_number
+# forms:
+#   transfer_funds_form:
+#     required_slots:
+#         transfer_amount:
+#           - type: from_entity
+#             entity: transfer_amount
+#         receiver_account_number:
+#           - type: from_entity
+#             entity: receiver_account_number
