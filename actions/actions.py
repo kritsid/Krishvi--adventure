@@ -181,10 +181,11 @@ def register():
     if request.method =='POST':
         global_data_config.inc = global_data_config.inc+1
         id =global_data_config.inc 
-        cursor = get_db()
-        cursor.execute('select * from voice_banking_users_db')
-        len1 = cursor.fetchall()
+        # cursor = get_db()
+        # cursor.execute('select * from voice_banking_users_db')
+        # len1 = cursor.fetchall()
         # id = len(len1)+1
+        id = 200
         email = request.form['email']
         first_name = request.form['first_name']
         last_name = request.form['last_name']
