@@ -25,6 +25,7 @@ nlu:
     - [check balance](service_name)
     - [transfer funds](service_name)
     - i want to [check balance](service_name)
+    - [check balance](service_name)
 - intent: bye
   examples: |
     - bye

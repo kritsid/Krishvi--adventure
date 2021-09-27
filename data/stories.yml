@@ -3,18 +3,15 @@ version: "2.0"
 stories:
 - story: check_bot
   steps:
-  - intent: greet                       
-  - action: utter_greet
   - intent: if_bot                     
   - action: utter_if_bot             
   - intent: bye
   - action: utter_bye
-- story: interactive_story_1
+
+- story: test_story1
   steps:
   - intent: greet
-  - action: utter_greet
-  - intent: about_user
-  - action: utter_about_user
+  - action: action_welcome
   - intent: service
     entities:
     - service_name: check balance
@@ -23,3 +20,20 @@ stories:
   - action: action_select_service
   - intent: bye
   - action: utter_bye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: about_user
+#   - action: utter_about_user
+#   - intent: service
+#     entities:
+#     - service_name: check balance
+#   - slot_was_set:
+#     - service_name: check balance
+#   - action: action_select_service
+#   - intent: bye
+#   - action: utter_bye
+
+
