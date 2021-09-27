@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -28,3 +29,5 @@ class ActionHelloWorld(Action):
 
 
 
+=======
+>>>>>>> a94d1244d5f5d46114d9552537b21eaaa2fecc74
