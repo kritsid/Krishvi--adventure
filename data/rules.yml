@@ -1,4 +1,26 @@
 version: "2.0"
 
-rules:
+# rules:
+# - rule: Activate form
+#   steps:
+#   - intent: request_transfer_funds_data
+#   - action: transfer_funds_form
+#   - active_loop: transfer_funds_form
 
+
+# - rule: Activate form
+#   steps:
+#   - intent: request_transfer_data
+#   - action: transfer_funds_form
+#   - active_loop: transfer_funds_form
+
+# - rule: Submit form
+#   condition:
+#   - active_loop: transfer_funds_form
+#   steps:
+#   - action: transfer_funds_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_submit
+#   - action: utter_slots_values

@@ -64,7 +64,8 @@ class ActionServices(Action):
             if account_type == 'fixed deposit' or account_type == 'recurring':
                 dispatcher.utter_message(response = "utter_invalid_acccount_type")
             else:
-                dispatcher.utter_message(response = "utter_transfer_funds")
+                dispatcher.utter_message(response = "utter_invalid_acccount_type")
+                # dispatcher.utter_message(response = "request_transfer_funds_data")
         else:
             # SlotSet('service_name', 'check balance')
             balance = tracker.slots.get('user_balance')

@@ -11,6 +11,9 @@ intents:
   - service
   - tranfer_to_whom
   - how_much_money_to_transfer
+  - request_transfer_funds_data
+  - transfer_funds
+
 
 entities: 
   - service_name
@@ -42,9 +45,16 @@ slots:
     type: bool
   transfer_amount:
     type: float
-  receiver_account_id:
+  receiver_account_number:
     type: text
     influence_conversation: false
+  # slots:
+  # first_name:
+  #   type: text
+  #   influence_conversation: true
+  # last_name:
+  #   type: text
+  #   influence_conversation: true
 
 responses:
   utter_greet:
@@ -63,6 +73,14 @@ responses:
     - text: Sry! your account is on hold.. You can not transfer funds
   utter_invalid_acccount_type:
     - text: sry! you have a {account_type} account. Money can only be transferred from savings, current or salary account.
+  utter_ask_transfer_funds_form_receiver_account_number: 
+    - text: Got the Account details of the reciever.
+  utter_ask_transfer_amount_form_receiver_account_number: 
+    - text: Got the Amount to be sent to the reciever.
+  utter_submit:
+  - text: Ok. Thanks!
+  utter_slots_values:
+  - text: I will remember that you have transfered {transfer_amount} dollars!
 actions: 
   - action_welcome
   - action_select_service
@@ -70,3 +88,12 @@ actions:
   - utter_bye
   - utter_greet
 
+# forms:
+#   transfer_funds_form:
+#     required_slots:
+#         transfer_amount:
+#           - type: from_text
+#             entity: transfer_amount
+#         receiver_account_number:
+#           - type: from_text
+#             entity: receiver_account_number
