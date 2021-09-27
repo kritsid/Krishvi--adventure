@@ -1,40 +1,38 @@
 version: "2.0"
-
 nlu:
 - intent: greet
   examples: |
     - hey
     - hello
     - hi
-    - hello there
+    - i have a question
+    - i need help
     - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-
-- intent: goodbye
+    - yo
+- intent: about_user
   examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
+    - I am good
+    - I am fine
+    - I am awesome
+    - fine.. what about you
+    - I dont wish to talk
+    - I am sick
+    - i am fine thank you
+- intent: service
+  examples: |
+    - I wish to [check balance](service_name)
+    - I wanna [transfer funds](service_name)
+    - [check balance](service_name)
+    - [transfer funds](service_name)
+    - i want to [check balance](service_name)
+- intent: bye
+  examples: |
     - bye
-    - goodbye
     - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-
-- intent: bot_challenge
+    - thanks
+    - see you
+- intent: if_bot
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - are you a bot
+    - u r human
+    - who r u
