@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KRISHVI Register Page</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet">
+    <!-- Main css -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender"><i class="zmdi zmdi-gender"></i></label>
+                                <input type="radio" name="gender" value="male" checked> Male<br>
+                                <input type="radio" name="gender" value="female"> Female<br>
+                                <input type="radio" name="gender" value="other"> Other
+                            </div>
+                            <div class="form-group">
+                                <label for="account_number"><i class="zmdi zmdi-number"></i></label>
+                                <input type="number" name="account_number" id="account_number" placeholder="Your Account number" /> <br>
+                            </div>
+                            <div class="form-group">
+                                <label for="account_type"><i class="zmdi zmdi-gender"></i></label>
+                                <input type="radio" name="account_type" value="salary" checked> salary<br>
+                                <input type="radio" name="account_type" value="recurring deposit"> recurring deposit<br>
+                                <input type="radio" name="account_type" value="fixed deposit"> fixed deposit<br>
+                                <input type="radio" name="account_type" value="savings"> savings<br>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="balance"><i class="zmdi zmdi-number"></i></label>
+                                <input type="number" name="balance" id="balance" placeholder="Account balance"/> <br>
+                            </div>
+                            <!-- on hold and balance -->
+                            
+                            
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        
+                        
+                        <!-- Information<br>
+
+When you use our app, we ask for :<br>
+
+Account information - you give us consent to access your bank data so that we can find your bills and the best deals for you.<br>
+
+Your postcode and address to see what deals are available in your area and to allow you to switch service providers.<br>
+
+What we do with your information:<br><br>
+
+Analyse your transactional data to give you tailored product and service offerings. It also helps us improve our subscription detection and the accuracy of the deals shown.
+<br>
+Completely anonymise your data so that we can analyse trends and research how to improve our services and the deals you see.<br> -->
+                        <!-- <figure><img src="images/signup-image.jpg" alt="sing up image"></figure> -->
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    
+    <script src="{{ url_for('static',filename='jquery.min.js') }}" rel="stylesheet"></script>
+    <!-- <script src="js/main.js"></script> -->
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
