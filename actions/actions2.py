@@ -26,6 +26,7 @@ class ActionServices(Action):
         if ser.lower() == 'transfer funds':
             dispatcher.utter_message(response = "utter_transfer_funds")
         else:
+            
             dispatcher.utter_message(response = "utter_check_balance")
 
         return []
