@@ -37,3 +37,32 @@ stories:
 #   - action: utter_bye
 
 
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: action_welcome
+  - slot_was_set:
+    - user_email: kritik@gmail.com
+  - slot_was_set:
+    - user_name: kritika
+  - slot_was_set:
+    - user_balance: 234.56
+  - slot_was_set:
+    - account_number: 11111111
+  - slot_was_set:
+    - account_type: current
+  - slot_was_set:
+    - account_hold: false
+  - intent: service
+    entities:
+    - service_name: tranfer funds
+  - slot_was_set:
+    - service_name: tranfer funds
+  - action: action_select_service
+  - intent: service
+    entities:
+    - service_name: transfer funds
+  - slot_was_set:
+    - service_name: transfer funds
+  - action: action_select_service

@@ -3,8 +3,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- service
 - greet
+- service
 - bye
 - if_bot
 - about_user
@@ -16,8 +16,12 @@ entities:
 - transfer_amount
 slots:
   service_name:
-    type: text
+    type: categorical
     influence_conversation: false
+    values:
+    - transfer funds
+    - check balance
+    - credit card payment
   user_name:
     type: text
     influence_conversation: false
@@ -39,8 +43,6 @@ slots:
     - salary
     - deposit
     - fixed
-    - current
-    - saving
   account_hold:
     type: bool
     influence_conversation: true

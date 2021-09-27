@@ -37,3 +37,18 @@ nlu:
     - are you a bot
     - u r human
     - who r u
+- synonym: credit
+  examples: |
+    - credit card account
+    - credit account
+- synonym: transfer
+  examples: |
+    - tranfer
+    - Trasfer
+    - truffle
+    - trafer
+    - TRANSFER
+    - trransfer
+    - tranffer
+    - transferr
+    

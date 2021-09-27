@@ -2,20 +2,30 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import global_data_config
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet,EventType
 
 class ActionWelcome(Action):
     def name(self) -> Text:
         return "action_welcome"
-    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker,domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        SlotSet("user_email", global_data_config.email)
-        SlotSet('user_name', global_data_config.name)
-        SlotSet('user_balance',global_data_config.balance)
-        SlotSet('account_number',global_data_config.account_number)
-        SlotSet('account_type', global_data_config.account_type)
-        SlotSet('account_hold',global_data_config.account_hold)
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        slots = {
+            "user_email": global_data_config.email,
+            "user_name": global_data_config.name,
+            "user_balance": global_data_config.balance,
+            "account_number": global_data_config.account_number,
+            "account_type": global_data_config.account_type,
+            "account_hold": global_data_config.account_hold,
+        }
+        # SlotSet("user_email", global_data_config.email)
+        # SlotSet('user_name', global_data_config.name)
+        # SlotSet('user_balance',global_data_config.balance)
+        # SlotSet('account_number',global_data_config.account_number)
+        # SlotSet('account_type', global_data_config.account_type)
+        # SlotSet('account_hold',global_data_config.account_hold)
         dispatcher.utter_message(response = "utter_about_user")        
-        return []
+        return [SlotSet(slot, value) for slot, value in slots.items()]
 
 class ActionHelloWorld(Action):
     def name(self) -> Text:
@@ -31,6 +41,8 @@ class ActionServices(Action):
 
     def name(self) -> Text:
         return "action_select_service"
+
+
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
