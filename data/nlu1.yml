@@ -7,3 +7,4 @@ nlu:
   examples: |
     - [tranfer funds](service_name)
     - [transfer funds](service_name)
+

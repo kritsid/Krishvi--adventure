@@ -5,8 +5,8 @@ stories:
   steps:
   - intent: if_bot                     
   - action: utter_if_bot             
-  - intent: bye
-  - action: utter_bye
+  # - intent: bye
+  # - action: utter_bye
 
 - story: test_story1
   steps:
@@ -18,8 +18,8 @@ stories:
   - slot_was_set:
     - service_name: check balance
   - action: action_select_service
-  - intent: bye
-  - action: utter_bye
+  # - intent: bye
+  # - action: utter_bye
 
 # - story: interactive_story_1
 #   steps:
@@ -27,8 +27,8 @@ stories:
 #   - action: utter_greet
 #   - intent: about_user
 #   - action: utter_about_user
-#   - intent: service
-#     entities:
+  # - intent: service
+    # entities:
 #     - service_name: check balance
 #   - slot_was_set:
 #     - service_name: check balance
@@ -36,7 +36,29 @@ stories:
 #   - intent: bye
 #   - action: utter_bye
 
-
+- story: transfer_funds
+  steps:
+  - action: utter_transfer_funds
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+  - slot_was_set:
+    - requested_slot: transfer_amount
+  - slot_was_set:
+    - transfer_amount: 502345
+  - slot_was_set:
+    - requested_slot: receiver_account_number
+  - slot_was_set:
+    - receiver_account_number: 456789123
+  - active_loop: null
+  - action: utter_slot_values
+  - intent: approve
+    entities:
+    - approval: yes
+  - slot_was_set:
+    - approval: yes
+  - action: action_final_transfer_funds
+  
+  
 
 - story: interactive_story_1
   steps:
@@ -66,3 +88,58 @@ stories:
   - slot_was_set:
     - service_name: transfer funds
   - action: action_select_service
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: action_welcome
+  - slot_was_set:
+    - user_email: kag@123.com
+  - slot_was_set:
+    - user_name: abc
+  - slot_was_set:
+    - user_balance: 29020
+  - slot_was_set:
+    - account_number: 7080904050
+  - slot_was_set:
+    - account_type: Saving
+  - slot_was_set:
+    - account_hold: false
+  - intent: service
+    entities:
+    - service_name: check balance
+  - slot_was_set:
+    - service_name: check balance
+  - action: action_select_service
+  - intent: service
+    entities:
+    - service_name: transfer funds
+  - slot_was_set:
+    - service_name: transfer funds
+  - action: action_select_service
+  - intent: how_much_money_to_transfer
+  - action: transfer_funds_form  
+  - active_loop: transfer_funds_form
+  - slot_was_set:
+    - requested_slot: transfer_amount
+  - slot_was_set:
+    - transfer_amount: '300'
+  - slot_was_set:
+    - transfer_amount: '300'
+  - slot_was_set:
+    - requested_slot: receiver_account_number
+  - slot_was_set:
+    - receiver_account_number: '12344568910'
+  - slot_was_set:
+    - receiver_account_number: '12344568910'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slot_values
+  - intent: approve
+    entities:
+    - approval: yes
+  - slot_was_set:
+    - approval: yes
+  - action: action_final_transfer_funds

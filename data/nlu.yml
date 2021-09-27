@@ -26,6 +26,7 @@ nlu:
     - [transfer funds](service_name)
     - i want to [check balance](service_name)
     - [check balance](service_name)
+    - [transfer funds](service_name)
 - intent: bye
   examples: |
     - bye
@@ -37,6 +38,41 @@ nlu:
     - are you a bot
     - u r human
     - who r u
+- intent: approve
+  examples: |
+    - [yes](approval)
+    - [no](approval)
+    - [yes](approval) proceed
+- intent: how_much_money_to_transfer
+  examples: |
+    - [300](transfer_amount)
+    - i want to transfer [23112](transfer_amount)
+    
+- intent: tranfer_to_whom
+  examples: |
+    - [12344568910](receiver_account_number)
+    - account number is [13123232897](receiver_account_number)
+
+- synonym: yes
+  examples: |
+    - I confirm
+    - yeah! proceed
+    - yup
+    - go ahead
+    - yes
+    - ok
+    - fine
+    - do it
+- synonym: no
+  examples: |
+    - nope
+    - dont do
+    - cancel the transaction
+    - did by mistake
+    - dont proceed
+    - exit
+    - cancel
+    - not at all
 - synonym: credit
   examples: |
     - credit card account
@@ -51,4 +87,3 @@ nlu:
     - trransfer
     - tranffer
     - transferr
-    

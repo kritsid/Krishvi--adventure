@@ -3,25 +3,23 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet
+- tranfer_to_whom
 - service
 - bye
+- greet
+- how_much_money_to_transfer
+- approve
 - if_bot
 - about_user
-- tranfer_to_whom
-- how_much_money_to_transfer
 entities:
+- approval
 - receiver_account_number
 - service_name
 - transfer_amount
 slots:
   service_name:
-    type: categorical
+    type: text
     influence_conversation: false
-    values:
-    - transfer funds
-    - check balance
-    - credit card payment
   user_name:
     type: text
     influence_conversation: false
@@ -54,6 +52,15 @@ slots:
   receiver_account_id:
     type: text
     influence_conversation: false
+  approval:
+    type: categorical
+    influence_conversation: true
+    values:
+    - yes
+    - no
+  receiver_account_number:
+    type: text
+    influence_conversation: true
 responses:
   utter_greet:
   - text: Hi {user_name}! How are you?
@@ -71,9 +78,31 @@ responses:
   - text: Sry! your account is on hold.. You can not transfer funds
   utter_invalid_acccount_type:
   - text: sry! you have a {account_type} account. Money can only be transferred from savings, current or salary account.
+  utter_slot_values:
+  - text: Do you want to tranfer {transfer_amount} to  account {receiver_account_number}?
+  utter_insufficient_balance:
+  - text: Insufficient funds! your balance is {user_balance} and you are trying to transfer {transfer_amount}..
+  utter_ask_transfer_amount:
+  - text: kindly enter the amount to be transferred
+  utter_ask_receiver_account_number:
+  - text: Kindly enter the account number to transfer the amount
+  utter_transfer_done:
+  - text: successfuly transferred the amount. your balance is now {user_balance}
 actions:
+- action_final_transfer_funds
+- action_restart
 - action_select_service
 - action_welcome
 - utter_about_user
 - utter_bye
 - utter_greet
+- utter_slot_values
+forms:
+  transfer_funds_form:
+    required_slots:
+      transfer_amount:
+      - type: from_entity
+        entity: transfer_amount
+      receiver_account_number:
+      - type: from_entity
+        entity: receiver_account_number
