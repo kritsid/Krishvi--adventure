@@ -1,20 +1,38 @@
-version: "2.0"
-
+version: '2.0'
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
 intents:
   - greet
-  - goodbye
-  - bot_challenge
-  
+  - bye
+  - if_bot
+  - about_user
+  - service
+
+entities: 
+  - service_name
+slots:
+  service_name:
+    type: text
+    influence_conversation: false
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"  
-  utter_goodbye:
-  - text: "Bye"
+    - text: Hey! How are you?
+  utter_bye:
+    - text: see yaaa...
+  utter_if_bot:
+    - text: I am bot powered by KRISHVI..
+  utter_about_user:
+    - text: what do u wish to do today? transfer funds or  check your balance or your payment history?
+  utter_transfer_funds:
+    - text: funds transferred
+  utter_check_balance:
+    - text: balance of ur account XXXX0225 is 2553dollars.
+ 
+actions: 
+  - action_select_service
+  - utter_about_user
+  - utter_bye
+  - utter_greet
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true

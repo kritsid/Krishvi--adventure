@@ -13,7 +13,7 @@ import speech_recognition as s_r
 import scipy.io.wavfile as wav
 import wave
 import os
-# from flask_mail import Mail,Message
+from flask_mail import Mail,Message
 from random import randint
 
 app=Flask(__name__)
@@ -27,7 +27,10 @@ def close_db(error):
     if hasattr(g, 'postgres_db_conn'):
         g.postgres_db_conn.close()
 
-
+def get_current_user():
+    pass
+def set_user_data():
+    pass
 # my_voiceit = VoiceIt2('key_2a3d1f042f234bc089208f1bad26e64b','tok_a10c3c9017b84cb7bb53b49f7bd64859')
 my_voiceit = VoiceIt2('key_56c24a5f4d4e41268ad35e3cc73eaca0','tok_132c2d00a38449179502fc4ed5a84f55')
 @app.route('/', methods=['GET','POST'])
@@ -61,6 +64,12 @@ def login():
             cursor.execute('select * from voice_banking_users_db where voice_id = %s',(x,))
             taken = cursor.fetchone()
             if len(taken)>=1:
+                email = taken['email']
+                user_id = taken['id']
+                name = taken['first_name'] +' '+ taken['last_name']
+                account_number = taken['account_number']
+
+                session['user']= taken['email']
                 return render_template('chatroom.html')
             return render_template('voice_home.html')
         else:
