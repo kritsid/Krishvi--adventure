@@ -5,6 +5,11 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import global_data_config
+from pathlib import Path
+import os
+
+
+
 from voiceit2 import VoiceIt2
 import speech_recognition as s_r
 # import pyaudio
@@ -31,7 +36,17 @@ my_voiceit = VoiceIt2('key_56c24a5f4d4e41268ad35e3cc73eaca0','tok_132c2d00a38449
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
+        downloads_path = str(Path.home() / "Downloads")
+        if os.path.exists(downloads_path+"\welcome.wav"):
+            print(downloads_path+"\welcome.wav")
+            os.remove(downloads_path+"\welcome.wav")
+        print(downloads_path+"\welcome.wav")
         return render_template('voice_home.html')
+    downloads_path = str(Path.home() / "Downloads")
+    if os.path.exists(downloads_path+"\welcome.wav"):
+        print(downloads_path+"\welcome.wav")
+        os.remove(downloads_path+"\welcome.wav")
+    print(downloads_path+"\welcome.wav")
     return render_template('index.html')
 
 @app.route('/login',methods=['GET','POST'])
@@ -39,7 +54,8 @@ def login():
     if request.method=="POST":
         # groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
-        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", "pa7.mp4")
+        downloads_path = str(Path.home() / "Downloads")
+        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\welcome.wav")
         print(identified_as)
         print(type(identified_as))
         if bool(identified_as):
