@@ -15,6 +15,21 @@ slots:
   service_name:
     type: text
     influence_conversation: false
+  user_name:
+    type: text
+    influence_conversation: false
+  user_email:
+    type: text
+    influence_conversation: false
+  user_balance:
+    type: float
+    influence_conversation: false
+  account_type:
+    type: categorical
+    values:
+      - salary
+      - deposit
+      - fixed
 
 responses:
   utter_greet:
