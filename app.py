@@ -110,7 +110,7 @@ def login():
                     }
                 df = pd.DataFrame(dict1,index=[0])
                 print(df)
-                df.to_csv('G:\krishvi-xethon\Krishvi--adventure\output.csv',index=False)
+                df.to_csv('E:\Hacks\krishvi-ad-2\Krishvi--adventure\output.csv',index=False)
                 email=global_data_config.email
                 msg=Message(subject='OTP',sender='vipul27goel@gmail.com',recipients=[email])
                 msg.body=str(otp)

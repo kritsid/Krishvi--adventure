@@ -15,6 +15,7 @@ import sqlite3
 import psycopg2
 from psycopg2.extras import DictCursor
 import os
+
 app=Flask(__name__)
 
 app.config['SECRET_KEY'] = os.urandom(24)#for session
@@ -70,8 +71,8 @@ class ActionFinalTransferFunds(Action):
             if float(transfer_amount) > float(tracker.slots.get('user_balance')):
                 dispatcher.utter_message(response ="utter_insufficient_balance")
 
+            user_balance = tracker.slots.get('user_balance')
             if len(result)>=1:
-                user_balance = tracker.slots.get('user_balance')
                 user_balance = float(user_balance) - float(transfer_amount)
                 temp = float(result['balance'])+float(transfer_amount)
                 cursor.execute('update voice_banking_users_db set balance = %s where account_number = %s',(user_balance, tracker.slots.get('account_number'),))
@@ -82,7 +83,7 @@ class ActionFinalTransferFunds(Action):
 
         else:
             dispatcher.utter_message(response ="utter_transfer_cancelled")
-
+            
         return [SlotSet('transfer_amount',0.0),SlotSet('receiver_account_number',None),SlotSet('user_balance',user_balance)]
 
 class ActionServices(Action):
@@ -109,19 +110,5 @@ class ActionServices(Action):
             dispatcher.utter_message(response = "utter_check_balance")
         return []
 
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-if __name__ == '__main__':
-    app.run(debug=True,port =5055)
-=======
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
+# if __name__ == "__main__":
+#     app.run(debug=True,port = 5055)

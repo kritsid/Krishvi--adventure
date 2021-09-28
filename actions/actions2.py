@@ -248,25 +248,8 @@
 #         print(global_data_config.name) 
 #         print(global_data_config.account_type) 
 #         print(global_data_config.account_hold)             
-  
-<<<<<<< HEAD
-        if ser.lower() == 'transfer funds':
-            account_type = tracker.slots.get('account_type')
-            account_hold = tracker.slots.get('account_hold')
-            if account_hold == True:
-                dispatcher.utter_message(response = "utter_account_on_hold")
-            if account_type == 'fixed deposit' or account_type == 'recurring':
-                dispatcher.utter_message(response = "utter_invalid_acccount_type")
-            else:
-                dispatcher.utter_message(response = "utter_invalid_acccount_type")
-                # dispatcher.utter_message(response = "request_transfer_funds_data")
-        else:
-            # SlotSet('service_name', 'check balance')
-            balance = tracker.slots.get('user_balance')
-            dispatcher.utter_message(response = "utter_check_balance")
-        return []
-=======
-#         if ser.lower() == 'transfer funds':
+# 
+# #         if ser.lower() == 'transfer funds':
 #             account_type = tracker.slots.get('account_type')
 #             account_hold = tracker.slots.get('account_hold')
 #             if account_hold == True:
@@ -282,4 +265,3 @@
 #             balance = tracker.slots.get('user_balance')
 #             dispatcher.utter_message(response = "utter_check_balance")
 #         return []
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10

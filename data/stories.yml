@@ -287,39 +287,6 @@ stories:
     entities:
     - transfer_amount: '10000'
   - slot_was_set:
-<<<<<<< HEAD
-    - service_name: transfer funds
-  - action: action_select_service
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: action_welcome
-  - slot_was_set:
-    - user_email: ''
-  - slot_was_set:
-    - user_name: ''
-  - slot_was_set:
-    - user_balance: 0
-  - slot_was_set:
-    - account_number: 11111111
-  - slot_was_set:
-    - account_type: ''
-  - slot_was_set:
-    - account_hold: ''
-  - intent: service
-    entities:
-    - service_name: transfer funds
-  - slot_was_set:
-    - service_name: transfer funds
-  - action: action_select_service
-  - intent: service
-    entities:
-    - service_name: check balance
-  - slot_was_set:
-    - service_name: check balance
-  - action: action_select_service
-=======
     - transfer_amount: '10000'
   - action: utter_slot_values
   - intent: approve
@@ -336,4 +303,85 @@ stories:
     - user_balance: 498947.2
   - intent: bye
   - action: action_hello_world
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: action_welcome
+  - slot_was_set:
+    - user_email: kag@123.com
+  - slot_was_set:
+    - user_name: abc
+  - slot_was_set:
+    - user_balance: 500000
+  - slot_was_set:
+    - account_number: 74607266160
+  - slot_was_set:
+    - account_type: Saving
+  - slot_was_set:
+    - account_hold: false
+  - intent: transfer_funds
+  - action: utter_ask_receiver_account_number
+  - intent: ask_account_number
+    entities:
+    - receiver_account_number: '22222222222'
+  - slot_was_set:
+    - receiver_account_number: '22222222222'
+  - action: utter_ask_transfer_amount
+  - intent: asking_transfer_amount
+    entities:
+    - receiver_account_number: '5000'
+  - slot_was_set:
+    - receiver_account_number: '5000'
+  - action: action_default_ask_affirmation
+  - intent: approve
+    entities:
+    - approval: yes
+  - slot_was_set:
+    - approval: yes
+  - action: action_final_transfer_funds
+  - intent: bye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: action_welcome
+#   - slot_was_set:
+#     - user_email: kag@123.com
+#   - slot_was_set:
+#     - user_name: abc
+#   - slot_was_set:
+#     - user_balance: 500000
+#   - slot_was_set:
+#     - account_number: 74607266160
+#   - slot_was_set:
+#     - account_type: Saving
+#   - slot_was_set:
+#     - account_hold: false
+#   - intent: transfer_funds
+#   - action: utter_ask_receiver_account_number
+#   - intent: asking_transfer_amount
+#     entities:
+#     - receiver_account_number: '43648844991'
+#   - slot_was_set:
+#     - receiver_account_number: '43648844991'
+#   - action: utter_ask_transfer_amount
+#   - intent: asking_transfer_amount
+#     entities:
+#     - transfer_amount: '7000'
+#   - slot_was_set:
+#     - transfer_amount: '7000'
+#   - action: utter_slot_values
+#   - intent: approve
+#     entities:
+#     - approval: yes
+#   - slot_was_set:
+#     - approval: yes
+#   - action: action_final_transfer_funds
+#   - slot_was_set:
+#     - transfer_amount: 0.0
+#   - slot_was_set:
+#     - receiver_account_number: null
+#   - slot_was_set:
+#     - user_balance: 493000.0
+#   - intent: bye

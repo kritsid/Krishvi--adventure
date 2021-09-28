@@ -38,18 +38,6 @@ nlu:
     - I dont wish to talk
     - I am sick
     - i am fine thank you
-<<<<<<< HEAD
-- intent: service
-  examples: |
-    - I wish to [check balance](service_name)
-    - I wanna [transfer funds](service_name)
-    - [check balance](service_name)
-    - [transfer funds](service_name)
-    - i want to [check balance](service_name)
-    - [transfer funds](service_name)
-    - [check balance](service_name)
-=======
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 - intent: bye
   examples: |
     - bye
@@ -73,6 +61,10 @@ nlu:
     - i want to transfer [23112](transfer_amount)
     - [5000](ask_transfer_amount)
     - transfer [10000](ask_transfer_amount)
+    - [22222222222](receiver_account_number)
+    - [5000](receiver_account_number)
+    - [43648844991](receiver_account_number)
+    - [7000](transfer_amount)
 - intent: asking_receiver_account_number
   examples: |
     - [12344568910](receiver_account_number)

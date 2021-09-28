@@ -8,22 +8,13 @@ intents:
   - bye
   - if_bot
   - about_user
-<<<<<<< HEAD
-  - service
-  - tranfer_to_whom
-  - how_much_money_to_transfer
-  - request_transfer_funds_data
-  - transfer_funds
-
-=======
-  # - service
+    # - service
   - asking_receiver_account_number
   - asking_transfer_amount
   - approve
   - transfer_funds
   - check_balance
-  # - ask_account_number
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
+  - ask_account_number
 
 entities: 
   # - service_name
@@ -62,18 +53,6 @@ slots:
     type: bool
   transfer_amount:
     type: float
-<<<<<<< HEAD
-  receiver_account_number:
-    type: text
-    influence_conversation: false
-  # slots:
-  # first_name:
-  #   type: text
-  #   influence_conversation: true
-  # last_name:
-  #   type: text
-  #   influence_conversation: true
-=======
     influence_conversation: false
     initial_value: 100.0
   approval:
@@ -84,7 +63,6 @@ slots:
   receiver_account_number:
     type: text
     initial_value: 43648842707
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 
 
   
@@ -107,16 +85,6 @@ responses:
     - text: Sry! your account is on hold.. You can not transfer funds
   utter_invalid_acccount_type:
     - text: sry! you have a {account_type} account. Money can only be transferred from savings, current or salary account.
-<<<<<<< HEAD
-  utter_ask_transfer_funds_form_receiver_account_number: 
-    - text: Got the Account details of the reciever.
-  utter_ask_transfer_amount_form_receiver_account_number: 
-    - text: Got the Amount to be sent to the reciever.
-  utter_submit:
-  - text: Ok. Thanks!
-  utter_slots_values:
-  - text: I will remember that you have transfered {transfer_amount} dollars!
-=======
   utter_slot_values:
     - text: Do you want to tranfer {transfer_amount} to  account {receiver_account_number}?
   utter_insufficient_balance:
@@ -129,7 +97,6 @@ responses:
     - text: successfuly transferred the amount. your balance is now {user_balance}
   utter_transfer_cancelled:
     - text: Transfer Cancelled!
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 actions: 
   - action_welcome
   - action_select_service
@@ -144,15 +111,8 @@ actions:
 #   transfer_funds_form:
 #     required_slots:
 #         transfer_amount:
-<<<<<<< HEAD
-#           - type: from_text
-#             entity: transfer_amount
-#         receiver_account_number:
-#           - type: from_text
-=======
 #           - type: from_entity
 #             entity: transfer_amount
 #         receiver_account_number:
 #           - type: from_entity
->>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 #             entity: receiver_account_number
