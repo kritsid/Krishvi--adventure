@@ -58,15 +58,15 @@ nlu:
     - [yes](approval)
 - intent: asking_transfer_amount
   examples: |
-    - 300 dollars only
-    - i want to transfer 23112 dollars
-    - 5000 dollars
+    - [300](transfer_amount) dollars only
+    - i want to transfer [23112](transfer_amount) dollars
+    - [5000](transfer_amount) dollars
     - transfer 10000
 - intent: asking_receiver_account_number
   examples: |
-    - 12344568910
-    - account number is 13123232897
-    - receiver account number is 43648842707
+    - [12344568910](receiver_account_number)
+    - account number is [13123232897](receiver_account_number)
+    - receiver account number is[43648842707](receiver_account_number)
 - synonym: yes
   examples: |
     - I confirm

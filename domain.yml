@@ -18,8 +18,8 @@ intents:
 
 entities: 
   # - service_name
-  # - transfer_amount
-  # - receiver_account_number
+  - transfer_amount
+  - receiver_account_number
   - approval
   # - transfer_funds
   # - check_balance

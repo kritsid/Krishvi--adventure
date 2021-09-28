@@ -5,8 +5,9 @@
 # balance=234.56
 # account_type = 'current'
 # account_hold = False
+
 count=0
-# inc = 200
+inc = 200
 email =''
 user_id=0
 name = ''
