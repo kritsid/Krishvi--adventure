@@ -29,7 +29,7 @@ class ActionHelloWorld(Action):
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-         dispatcher.utter_message("Hello World!")
+         dispatcher.utter_message(response = "greet")
 
          return [AllSlotsReset()]
 
@@ -48,6 +48,7 @@ class ActionWelcome(Action):
             "account_hold": False,
         }
         data = pd.read_csv('output.csv')
+        print(data.iloc[0,0],data.iloc[0,1],data.iloc[0,2],data.iloc[0,3])
         dispatcher.utter_message(response = "utter_about_user")
         return [SlotSet(slot, value) for slot, value in slots.items()]      
         # return [SlotSet('user_email',data.iloc[0,0]), SlotSet("user_name",data.iloc[0,1]),SlotSet("user_balance",data.iloc[0,2]),SlotSet("account_number",data.iloc[0,3]), SlotSet("account_type",data.iloc[0,4]),SlotSet("account_hold",data.iloc[0,5])]
@@ -69,14 +70,15 @@ class ActionFinalTransferFunds(Action):
             result = cursor.fetchone()
             if float(transfer_amount) > float(tracker.slots.get('user_balance')):
                 dispatcher.utter_message(response ="utter_insufficient_balance")
+            user_balance = tracker.slots.get('user_balance')
 
             if len(result)>=1:
-                user_balance = tracker.slots.get('user_balance')
                 user_balance = float(user_balance) - float(transfer_amount)
                 temp = float(result['balance'])+float(transfer_amount)
                 cursor.execute('update voice_banking_users_db set balance = %s where account_number = %s',(user_balance, tracker.slots.get('account_number'),))
                 cursor.execute('update voice_banking_users_db set balance = %s where account_number = %s',(temp, receiver_account_number, ))
                 dispatcher.utter_message(response ="utter_transfer_done")
+                return [SlotSet('user_balance',user_balance)]
             else:
                 dispatcher.utter_message(response ="utter_transfer_cancelled")
 

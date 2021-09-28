@@ -9,7 +9,7 @@ nlu:
     - i need help
     - good morning
     - yo
-- intent: transfer_funds
+- intent: service_transfer_funds
   examples: |
     - hey! i wanna transfer funds
     - transfer funds
@@ -17,7 +17,8 @@ nlu:
     - i want to make a payment
     - transfer some money
     - i want to transfer funds
-- intent: check_balance
+    - i want to transfer some funds
+- intent: service_check_balance
   examples: |
     - hey! i wanna check balance
     - check my balance
@@ -57,16 +58,15 @@ nlu:
     - [yes](approval)
 - intent: asking_transfer_amount
   examples: |
-    - [300](transfer_amount)
-    - i want to transfer [23112](transfer_amount)
-    - [5000](ask_transfer_amount)
-    - transfer [10000](ask_transfer_amount)
+    - 300 dollars only
+    - i want to transfer 23112 dollars
+    - 5000 dollars
+    - transfer 10000
 - intent: asking_receiver_account_number
   examples: |
-    - [12344568910](receiver_account_number)
-    - account number is [13123232897](receiver_account_number)
-    - acount number is [10405032123](receiver_account_number)
-    - receiver account number is [43648842707](receiver_account_number)
+    - 12344568910
+    - account number is 13123232897
+    - receiver account number is 43648842707
 - synonym: yes
   examples: |
     - I confirm
