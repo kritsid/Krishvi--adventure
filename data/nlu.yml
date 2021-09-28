@@ -9,6 +9,26 @@ nlu:
     - i need help
     - good morning
     - yo
+- intent: transfer_funds
+  examples: |
+    - hey! i wanna transfer funds
+    - transfer funds
+    - i wanna transfer money
+    - i want to make a payment
+    - transfer some money
+    - i want to transfer funds
+- intent: check_balance
+  examples: |
+    - hey! i wanna check balance
+    - check my balance
+    - hey! i wanna see my balance
+    - what is my account balance
+    - how much money is there in my account
+    - what is my remaining balance
+    - how much money do i have?
+    - tell me my balance
+    - what is my balance status?
+    - check balance
 - intent: about_user
   examples: |
     - I am good
@@ -18,6 +38,7 @@ nlu:
     - I dont wish to talk
     - I am sick
     - i am fine thank you
+<<<<<<< HEAD
 - intent: service
   examples: |
     - I wish to [check balance](service_name)
@@ -27,6 +48,8 @@ nlu:
     - i want to [check balance](service_name)
     - [transfer funds](service_name)
     - [check balance](service_name)
+=======
+>>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 - intent: bye
   examples: |
     - bye
@@ -38,6 +61,44 @@ nlu:
     - are you a bot
     - u r human
     - who r u
+- intent: approve
+  examples: |
+    - [yes](approval)
+    - [no](approval)
+    - [yes](approval) proceed
+    - [yes](approval)
+- intent: asking_transfer_amount
+  examples: |
+    - [300](transfer_amount)
+    - i want to transfer [23112](transfer_amount)
+    - [5000](ask_transfer_amount)
+    - transfer [10000](ask_transfer_amount)
+- intent: asking_receiver_account_number
+  examples: |
+    - [12344568910](receiver_account_number)
+    - account number is [13123232897](receiver_account_number)
+    - acount number is [10405032123](receiver_account_number)
+    - receiver account number is [43648842707](receiver_account_number)
+- synonym: yes
+  examples: |
+    - I confirm
+    - yeah! proceed
+    - yup
+    - go ahead
+    - yes
+    - ok
+    - fine
+    - do it
+- synonym: no
+  examples: |
+    - nope
+    - dont do
+    - cancel the transaction
+    - did by mistake
+    - dont proceed
+    - exit
+    - cancel
+    - not at all
 - synonym: credit
   examples: |
     - credit card account

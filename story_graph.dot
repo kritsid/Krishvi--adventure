@@ -3,6 +3,7 @@ digraph  {
 "-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
 1 [class=active, fontsize=12, label=action_session_start];
 2 [class=active, fontsize=12, label=action_welcome];
+<<<<<<< HEAD
 3 [class=active, fontsize=12, label=action_select_service];
 5 [class="intent dashed active", label="  ?  ", shape=rect];
 6 [class="intent active", fillcolor=lightblue, label=hi, shape=rect, style=filled];
@@ -17,4 +18,42 @@ digraph  {
 6 -> 2  [class=active, key=0];
 7 -> 3  [class=active, key=0];
 8 -> 3  [class=active, key=0];
+=======
+3 [class=active, fontsize=12, label=action_unlikely_intent];
+4 [class=active, fontsize=12, label=utter_check_balance];
+5 [class=active, fontsize=12, label=action_unlikely_intent];
+6 [class=active, fontsize=12, label=utter_ask_receiver_account_number];
+7 [class=active, fontsize=12, label=utter_ask_transfer_amount];
+8 [class=active, fontsize=12, label=utter_slot_values];
+9 [class=active, fontsize=12, label=action_final_transfer_funds];
+18 [class=active, fontsize=12, label=action_hello_world];
+19 [class="intent dashed active", label="  ?  ", shape=rect];
+20 [class="intent active", fillcolor=lightblue, label=hi, shape=rect, style=filled];
+21 [class="intent active", fillcolor=lightblue, label="check balance", shape=rect, style=filled];
+22 [class="intent active", fillcolor=lightblue, label="transfer funds", shape=rect, style=filled];
+23 [class="intent active", fillcolor=lightblue, label="receiver account number is 43648842707", shape=rect, style=filled];
+24 [class="intent active", fillcolor=lightblue, label="transfer 10000", shape=rect, style=filled];
+25 [class="intent active", fillcolor=lightblue, label=yes, shape=rect, style=filled];
+26 [class="intent active", fillcolor=lightblue, label=thanks, shape=rect, style=filled];
+0 -> "-1"  [class="", key=NONE, label=""];
+0 -> 1  [class=active, key=NONE, label=""];
+1 -> 20  [class=active, key=0];
+2 -> 21  [class=active, key=0];
+3 -> 4  [class=active, key=NONE, label=""];
+4 -> 22  [class=active, key=0];
+5 -> 6  [class=active, key=NONE, label=""];
+6 -> 23  [class=active, key=0];
+7 -> 24  [class=active, key=0];
+8 -> 25  [class=active, key=0];
+9 -> 9  [class=active, key=NONE, label=""];
+9 -> 26  [class=active, key=0];
+18 -> 19  [class=active, key=NONE, label=""];
+20 -> 2  [class=active, key=0];
+21 -> 3  [class=active, key=0];
+22 -> 5  [class=active, key=0];
+23 -> 7  [class=active, key=0];
+24 -> 8  [class=active, key=0];
+25 -> 9  [class=active, key=0];
+26 -> 18  [class=active, key=0];
+>>>>>>> 8955daf1499c8dd2501b9e401f37036a59d39f10
 }

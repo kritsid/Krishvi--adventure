@@ -1,9 +1,0 @@
-version: "2.0"
-nlu:
-- intent: greet
-  examples: |
-    - hi
-- intent: service
-  examples: |
-    - [tranfer funds](service_name)
-    - [transfer funds](service_name)

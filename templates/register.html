@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KRISHVI Register Page</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{url_for('static',filename = 'material-design-iconic-font.min.css')}}">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet">
+    <!-- Main css -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="post" action = "{{url_for('register')}}" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <!-- <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label> -->
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label> -->
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="email"><i class="zmdi zmdi-email"></i></label> -->
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="gender"><i class="zmdi zmdi-gender"></i></label> -->
+                                <input type="radio" name="gender" value="male" checked> Male<br>
+                                <input type="radio" name="gender" value="female"> Female<br>
+                                <input type="radio" name="gender" value="other"> Other
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="account_number"><i class="zmdi zmdi-number"></i></label> -->
+                                <input type="number" name="account_number" id="account_number" placeholder="Your Account number" /> <br>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="account_type"><i class="zmdi zmdi-gender"></i></i></label> -->
+                                <input type="radio" name="account_type" value="salary" checked> salary<br>
+                                <input type="radio" name="account_type" value="recurring deposit"> recurring deposit<br>
+                                <input type="radio" name="account_type" value="fixed deposit"> fixed deposit<br>
+                                <input type="radio" name="account_type" value="savings"> savings<br>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label for="balance"><i class="zmdi zmdi-number"></i></label> -->
+                                <input type="number" name="balance" id="balance" placeholder="Account balance"/> 
+                            </div>
+                            <!-- on hold and balance -->
+                            
+
+                             <div class="form-group">
+                                <label>User Account is on hold?</label><br><br><br><br><br><br>
+
+                                <!-- <label for="on_hold"><i class="zmdi zmdi-lock"></i></label> -->
+                                <input type="radio" name="on_hold" id="on_hold" value="True" >Yes
+                                <input type="radio" name="on_hold" id="on_hold" value="False">No
+                            </div>
+                            <h4>WARNING! This voice note will be used to authenticate and log you in for your future LogIn</h4>
+                            <h4>upload audio file</h4>
+
+                            <div class ="form-group">
+                                <label><br /> </label>
+                                    <input type='file' accept="audio/*" placeholder="" class="profile-aud">
+                                
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>  -->
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+
+                         
+                            <br>
+<br><br>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    
+    <script src="{{ url_for('static',filename='jquery.min.js') }}" rel="stylesheet"></script>
+    <!-- <script src="js/main.js"></script> -->
+</body>
+</html>
