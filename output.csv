@@ -1,2 +1,6 @@
 user_email,user_name,user_balance,account_number,account_type,account_hold
+<<<<<<< HEAD
 kaggarwal1_be18@thapar.edu,Kritika Aggarwal,499544.0,74607266160,salary,False
+=======
+kaggarwal1_be18@thapar.edu,Kritika Aggarwal,499094.0,74607266160,salary,False
+>>>>>>> b13b2837a142bf4a7cf474a00caceaed9d5fac0c

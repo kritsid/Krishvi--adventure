@@ -12,9 +12,15 @@ intents:
   - asking_receiver_account_number
   - asking_transfer_amount
   - approve
+<<<<<<< HEAD
   - transfer_funds
   - check_balance
   - ask_account_number
+=======
+  - service_transfer_funds
+  - service_check_balance
+  # - ask_account_number
+>>>>>>> b13b2837a142bf4a7cf474a00caceaed9d5fac0c
 
 entities: 
   # - service_name
@@ -54,7 +60,7 @@ slots:
   transfer_amount:
     type: float
     influence_conversation: false
-    initial_value: 100.0
+    # initial_value: 100.0
   approval:
     type: categorical
     values:
@@ -62,7 +68,7 @@ slots:
       - no
   receiver_account_number:
     type: text
-    initial_value: 43648842707
+    # initial_value: 43648842707
 
 
   
@@ -94,7 +100,7 @@ responses:
   utter_ask_receiver_account_number:
     - text: Kindly enter the account number to transfer the amount
   utter_transfer_done:
-    - text: successfuly transferred the amount. your balance is now {user_balance}
+    - text: successfuly transferred the amount. 
   utter_transfer_cancelled:
     - text: Transfer Cancelled!
 actions: 
@@ -107,12 +113,14 @@ actions:
   - action_final_transfer_funds
   - action_hello_world
 
-# forms:
-#   transfer_funds_form:
-#     required_slots:
-#         transfer_amount:
-#           - type: from_entity
-#             entity: transfer_amount
-#         receiver_account_number:
-#           - type: from_entity
-#             entity: receiver_account_number
+forms:
+  transfer_funds_form:
+    required_slots:
+        transfer_amount:
+          - type: from_text
+            intent_name: asking_transfer_amount
+            # value: 5000
+        receiver_account_number:
+          - type: from_text
+            intent_name: asking_receiver_account_number
+            # value: 43648842707

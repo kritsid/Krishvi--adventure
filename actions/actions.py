@@ -30,25 +30,28 @@ class ActionHelloWorld(Action):
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-         dispatcher.utter_message("Hello World!")
+         dispatcher.utter_message(response = "greet")
 
          return [AllSlotsReset()]
+data = pd.read_csv('output.csv')
 
 class ActionWelcome(Action):
     def name(self) -> Text:
         return "action_welcome"
+    
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         slots = {
-            "user_email": 'kag@123.com',
-            "user_name": 'abc',
-            "user_balance": 500000,
-            "account_number": 74607266160,
-            "account_type": 'Saving',
-            "account_hold": False,
+            "user_email": str(data.iloc[0,0]),
+            "user_name": str(data.iloc[0,1]),
+            "user_balance": str(data.iloc[0,2]),
+            "account_number": str(data.iloc[0,3]),
+            "account_type": str(data.iloc[0,4]),
+            "account_hold": str(data.iloc[0,5])
         }
-        data = pd.read_csv('output.csv')
+        
+        print(data.iloc[0,0],data.iloc[0,1],data.iloc[0,2],data.iloc[0,3])
         dispatcher.utter_message(response = "utter_about_user")
         return [SlotSet(slot, value) for slot, value in slots.items()]      
         # return [SlotSet('user_email',data.iloc[0,0]), SlotSet("user_name",data.iloc[0,1]),SlotSet("user_balance",data.iloc[0,2]),SlotSet("account_number",data.iloc[0,3]), SlotSet("account_type",data.iloc[0,4]),SlotSet("account_hold",data.iloc[0,5])]
@@ -59,32 +62,41 @@ class ActionFinalTransferFunds(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
     domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         transfer_amount = tracker.slots.get('transfer_amount')
-        receiver_account_number = tracker.slots.get('receiver_account_number')
+        receiver_account_number = str(tracker.slots.get('receiver_account_number'))
+        print('receiver_account_number is ', receiver_account_number)
         value = tracker.slots.get('approval')
-        if value == 'yes':
+        print(value)
+        if value == 'yes' or value== 'YES' or value =='Yes' or value == 'yEs' or value =='yup' or value == 'yeah' or value == 'yes please' or value == 'yes transfer' :
             # cursor = get_db()
             conn = psycopg2.connect('postgres://qahsnefkaipjxg:325b65d33021cb764a558159aaccb79974554c1e5a70d154a4a2ea44218908f3@ec2-34-233-187-36.compute-1.amazonaws.com:5432/dfjoleem3udeag', cursor_factory=DictCursor)
             conn.autocommit = True    
             cursor = conn.cursor()    
             cursor.execute('select * from voice_banking_users_db where account_number = %s',(receiver_account_number, ) )
             result = cursor.fetchone()
+
             if float(transfer_amount) > float(tracker.slots.get('user_balance')):
                 dispatcher.utter_message(response ="utter_insufficient_balance")
-
             user_balance = tracker.slots.get('user_balance')
+            if result == None:
+                print('data not fetched from DB')
+                dispatcher.utter_message(response ="utter_transfer_cancelled")
+                return []
             if len(result)>=1:
                 user_balance = float(user_balance) - float(transfer_amount)
                 temp = float(result['balance'])+float(transfer_amount)
                 cursor.execute('update voice_banking_users_db set balance = %s where account_number = %s',(user_balance, tracker.slots.get('account_number'),))
                 cursor.execute('update voice_banking_users_db set balance = %s where account_number = %s',(temp, receiver_account_number, ))
                 dispatcher.utter_message(response ="utter_transfer_done")
+                return [SlotSet('user_balance',user_balance),SlotSet('transfer_amount',None),SlotSet('receiver_account_number',None)]
             else:
+                print('data not fetched from DB')
+
                 dispatcher.utter_message(response ="utter_transfer_cancelled")
 
         else:
             dispatcher.utter_message(response ="utter_transfer_cancelled")
-            
-        return [SlotSet('transfer_amount',0.0),SlotSet('receiver_account_number',None),SlotSet('user_balance',user_balance)]
+
+        return [SlotSet('transfer_amount',None),SlotSet('receiver_account_number',None)]
 
 class ActionServices(Action):
     def name(self) -> Text:
