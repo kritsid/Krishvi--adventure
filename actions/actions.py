@@ -91,9 +91,11 @@ class ActionFinalTransferFunds(Action):
                 print('data not fetched from DB')
 
                 dispatcher.utter_message(response ="utter_transfer_cancelled")
+                
 
         else:
             dispatcher.utter_message(response ="utter_transfer_cancelled")
+            return [SlotSet('user_balance',user_balance),SlotSet('transfer_amount',None),SlotSet('receiver_account_number',None)]
 
         return [SlotSet('transfer_amount',None),SlotSet('receiver_account_number',None)]
 

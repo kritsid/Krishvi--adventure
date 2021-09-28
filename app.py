@@ -54,11 +54,33 @@ def index():
     print(downloads_path+"\welcome.wav")
     return render_template('index.html')
 
+@app.route('/voice_r', methods = ['GET','POST'])
+def voice_r():
+    if request.method=="POST":
+        groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
+        p = str(Path.home() / "Downloads")
+        user=my_voiceit.create_user()
+        id=user["userId"]
+        print(id)
+        global_data_config.user_id=str(id)
+        voice1=my_voiceit.create_voice_enrollment(id, "no-STT", "never forget tomorrow is a new day", p+"\\welcome (3).wav")
+        voice2=my_voiceit.create_voice_enrollment(id, "no-STT", "never forget tomorrow is a new day", p+"\\welcome (1).wav")
+        voice3=my_voiceit.create_voice_enrollment(id, "no-STT", "never forget tomorrow is a new day", p+"\\welcome (2).wav")
+        my_voiceit.add_user_to_group(id, groupId)
+        print(voice1)
+        print(voice2)
+        print(voice3)
+        global_data_config.inc=voice3["id"]
+        return render_template('register.html')
+        
+    return render_template('voice_r.html')
+
+
 @app.route('/register', methods = ['GET','POST'])
 def register():
     if request.method =='POST':
-        global_data_config.inc = global_data_config.inc+1
-        id =global_data_config.inc 
+        
+        id =global_data_config.inc
         
         email = request.form['email']
         first_name = request.form['first_name']
@@ -68,11 +90,10 @@ def register():
         account_number = request.form['account_number']
         on_hold = request.form['on_hold']
         account_type = request.form['account_type']
-        voice_id = str(id)
+        voice_id = global_data_config.user_id
         cursor = get_db()
         cursor.execute('insert into voice_banking_users_db (id, first_name, last_name,email, gender, account_number, account_type, on_hold, balance,voice_id ) values (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s)',(id, first_name, last_name,email, gender, account_number, account_type, on_hold, balance ,voice_id))
-        return render_template('voice_home.html')
-        
+        return 'Successfully registered!!!'
         
     return render_template('register.html')
 
@@ -81,7 +102,7 @@ def login():
     if request.method=="POST":
         groupId='grp_10a96522eb114182bafeb5c51bc40ab6'
         downloads_path = str(Path.home() / "Downloads")
-        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\welcome.wav")
+        identified_as=my_voiceit.voice_identification(groupId, "no-STT", "never forget tomorrow is a new day", downloads_path+"\\vipul.wav")
         print(identified_as)
         print(type(identified_as))
         if identified_as['responseCode'] != 'FAIL':
@@ -110,7 +131,7 @@ def login():
                     }
                 df = pd.DataFrame(dict1,index=[0])
                 print(df)
-                df.to_csv('G:\krishvi-xethon\Krishvi--adventure\output.csv',index=False)
+                df.to_csv(r'C:\\Users\\goels\\Desktop\\Vipul\\Krishvi--adventure\\output.csv',index=False)
                 email=global_data_config.email
                 msg=Message(subject='OTP',sender='vipul27goel@gmail.com',recipients=[email])
                 msg.body=str(otp)
